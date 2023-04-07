@@ -1,5 +1,5 @@
 #!/usr/bin/ksh
-
+#here i used datafile approach. i mentioned all necessary data in one file. then getting them by using single loop.
 inp_file="/a/a/a/a/20230329.csv"
 
 if [ -f $inp_file ]
