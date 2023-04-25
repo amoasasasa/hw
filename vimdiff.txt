@@ -1,0 +1,26 @@
+1) function to view vimdiff.
+requirements == todays date, directory path, file names (one normal and other one with date)
+
+date == from mflags 
+filenames = no no we dont have to add extension to them just use wildcard .??? and .???_$date
+for multiple backup files we have to ask user for input which file user want we will show the user which file are present if that count is greater than 3 
+we will show filenames first then ask user to select the filename then we will update the codename_bkp variable with new value..	
+		first we will go to the directory then for loop will read file names one by one 
+		
+		for i in $filename
+		do
+		codename="$i.???"
+		codename_bkp="$codename_$date*"
+		local file_cnt=`ls -lrt $codename $codename_bkp|wc -l`
+		if [ file_cnt > 2 ]
+		then
+			echo "There are more backup files for present date. Below is the list of files"
+			ls -lrt $codename_bkp
+			echo "please select which file do you want to select to compare?"
+			read $codename_bkp
+		
+		echo "showing vimdiff for $codename and $codename_bkp. Press enter"
+		read 
+		vimdiff $codename $codename_bkp
+		
+done
