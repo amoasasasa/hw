@@ -10,7 +10,7 @@ def difference(){
     cd $directory
     for i in $filename
     do
-        codename="$i.???"
+        codename="$i"
     	codename_bkp="$codename"_"$todays_date*"
     	local file_cnt=`ls -lrt $codename $codename_bkp|wc -l`
     	if [ $file_cnt > 2 ]
